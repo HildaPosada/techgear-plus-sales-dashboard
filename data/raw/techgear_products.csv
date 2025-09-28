@@ -1,0 +1,105 @@
+product_id,product_name,category,retail_price,cost_price,launch_date,supplier
+P00001,TechPro X1,Laptops & Computers,1032.96,805.71,2022-10-09,Supplier_8
+P00002,CompuMax Pro 15,Laptops & Computers,861.71,672.13,2022-04-15,Supplier_18
+P00003,TechPro Ultra Thin,Laptops & Computers,1073.68,837.47,2023-03-09,Supplier_2
+P00004,TechPro X1,Laptops & Computers,1309.76,1021.61,2022-08-12,Supplier_8
+P00005,TechPro Ultra Thin,Laptops & Computers,835.85,651.96,2022-07-23,Supplier_18
+P00006,PowerStation Pro 15,Laptops & Computers,835.85,651.96,2023-04-05,Supplier_19
+P00007,EliteBook X1,Laptops & Computers,1324.91,1033.43,2022-06-13,Supplier_14
+P00008,EliteBook Gaming Elite,Laptops & Computers,1105.98,862.66,2022-06-09,Supplier_7
+P00009,EliteBook X1,Laptops & Computers,772.38,602.46,2022-04-05,Supplier_13
+P00010,TechPro Gaming Elite,Laptops & Computers,1045.33,815.36,2022-12-19,Supplier_20
+P00011,EliteBook X1,Laptops & Computers,774.02,603.74,2023-04-16,Supplier_18
+P00012,TechPro Business Series,Laptops & Computers,773.39,603.24,2022-03-22,Supplier_18
+P00013,EliteBook Ultra Thin,Laptops & Computers,964.26,752.12,2023-01-06,Supplier_19
+P00014,CompuMax X1,Laptops & Computers,399.0,311.22,2022-02-16,Supplier_8
+P00015,EliteBook X1,Laptops & Computers,433.79,338.36,2022-08-27,Supplier_4
+P00016,PowerStation Gaming Elite,Laptops & Computers,747.35,582.93,2023-04-10,Supplier_12
+P00017,CompuMax Gaming Elite,Laptops & Computers,625.84,488.16,2022-12-30,Supplier_7
+P00018,EliteBook X1,Laptops & Computers,983.75,767.33,2023-09-16,Supplier_6
+P00019,CompuMax Pro 15,Laptops & Computers,654.11,510.21,2023-04-19,Supplier_13
+P00020,EliteBook Ultra Thin,Laptops & Computers,518.1,404.12,2022-08-13,Supplier_11
+P00021,TechPro Pro 15,Laptops & Computers,1294.29,1009.55,2022-02-02,Supplier_11
+P00022,PowerStation Gaming Elite,Laptops & Computers,838.11,653.73,2022-03-09,Supplier_7
+P00023,EliteBook Pro 15,Laptops & Computers,917.21,715.42,2023-11-03,Supplier_16
+P00024,PowerStation Business Series,Laptops & Computers,514.75,401.5,2022-05-27,Supplier_9
+P00025,CompuMax Pro 15,Laptops & Computers,752.18,586.7,2023-07-29,Supplier_18
+P00026,ConnectPro Power Bank,Mobile & Accessories,153.96,84.68,2023-02-13,Supplier_12
+P00027,MobiTech Screen Protector,Mobile & Accessories,97.55,53.65,2023-06-06,Supplier_16
+P00028,PhoneGuard Wireless Charger,Mobile & Accessories,165.79,91.18,2022-04-23,Supplier_5
+P00029,MobiTech Car Mount,Mobile & Accessories,122.15,67.18,2023-09-03,Supplier_3
+P00030,ConnectPro Car Mount,Mobile & Accessories,135.96,74.78,2023-09-03,Supplier_15
+P00031,PowerCell Power Bank,Mobile & Accessories,122.1,67.16,2022-01-12,Supplier_4
+P00032,PowerCell Phone Case,Mobile & Accessories,231.8,127.49,2022-04-25,Supplier_10
+P00033,ConnectPro Screen Protector,Mobile & Accessories,148.4,81.62,2023-04-10,Supplier_1
+P00034,PowerCell Power Bank,Mobile & Accessories,101.72,55.95,2022-07-02,Supplier_17
+P00035,PhoneGuard Phone Case,Mobile & Accessories,185.77,102.17,2023-10-17,Supplier_17
+P00036,MobiTech Screen Protector,Mobile & Accessories,94.43,51.94,2023-01-18,Supplier_6
+P00037,PhoneGuard Power Bank,Mobile & Accessories,158.34,87.09,2022-11-28,Supplier_16
+P00038,PhoneGuard Wireless Charger,Mobile & Accessories,61.4,33.77,2023-01-07,Supplier_10
+P00039,MobiTech Wireless Charger,Mobile & Accessories,89.63,49.3,2022-09-04,Supplier_19
+P00040,PhoneGuard Wireless Charger,Mobile & Accessories,157.8,86.79,2023-05-13,Supplier_3
+P00041,MobiTech Screen Protector,Mobile & Accessories,182.01,100.11,2023-11-07,Supplier_16
+P00042,MobiTech Phone Case,Mobile & Accessories,156.66,86.16,2023-06-25,Supplier_20
+P00043,ConnectPro Screen Protector,Mobile & Accessories,143.83,79.11,2023-07-07,Supplier_7
+P00044,PowerCell Car Mount,Mobile & Accessories,135.54,74.55,2023-11-19,Supplier_12
+P00045,TurboGear Mechanical Keyboard,Gaming Equipment,194.2,126.23,2022-09-11,Supplier_8
+P00046,GameMaster Headset Pro,Gaming Equipment,273.63,177.86,2022-01-22,Supplier_19
+P00047,ProPlayer Gaming Chair,Gaming Equipment,300.77,195.5,2022-08-14,Supplier_1
+P00048,GameMaster Mechanical Keyboard,Gaming Equipment,459.68,298.79,2022-08-23,Supplier_3
+P00049,GameMaster Headset Pro,Gaming Equipment,384.98,250.24,2022-03-14,Supplier_17
+P00050,ProPlayer Headset Pro,Gaming Equipment,164.41,106.87,2023-11-17,Supplier_16
+P00051,ProPlayer Gaming Chair,Gaming Equipment,382.93,248.9,2022-05-16,Supplier_19
+P00052,TurboGear Gaming Mouse,Gaming Equipment,308.68,200.64,2023-04-30,Supplier_14
+P00053,ProPlayer Mechanical Keyboard,Gaming Equipment,278.13,180.78,2022-04-10,Supplier_14
+P00054,EliteGaming Controller Elite,Gaming Equipment,413.04,268.48,2023-02-25,Supplier_15
+P00055,GameMaster Mechanical Keyboard,Gaming Equipment,456.95,297.02,2022-03-04,Supplier_13
+P00056,EliteGaming Mechanical Keyboard,Gaming Equipment,446.51,290.23,2022-09-12,Supplier_7
+P00057,ProPlayer Gaming Chair,Gaming Equipment,261.13,169.73,2023-04-05,Supplier_5
+P00058,TurboGear Gaming Mouse,Gaming Equipment,316.63,205.81,2022-10-13,Supplier_15
+P00059,ProPlayer Mechanical Keyboard,Gaming Equipment,383.68,249.39,2023-03-30,Supplier_18
+P00060,GameMaster Mechanical Keyboard,Gaming Equipment,451.14,293.24,2023-10-30,Supplier_18
+P00061,GameMaster Mechanical Keyboard,Gaming Equipment,298.83,194.24,2022-08-31,Supplier_6
+P00062,TurboGear Controller Elite,Gaming Equipment,329.56,214.21,2023-05-08,Supplier_7
+P00063,TurboGear Mechanical Keyboard,Gaming Equipment,233.17,151.56,2022-06-18,Supplier_13
+P00064,GameMaster Controller Elite,Gaming Equipment,223.76,145.44,2022-09-29,Supplier_15
+P00065,EliteGaming Controller Elite,Gaming Equipment,434.07,282.15,2023-07-24,Supplier_16
+P00066,ProPlayer Gaming Mouse,Gaming Equipment,491.0,319.15,2022-10-31,Supplier_7
+P00067,SoundWave Bluetooth Speaker,Audio & Headphones,194.7,116.82,2022-02-28,Supplier_2
+P00068,ClearSound Over-Ear Headphones,Audio & Headphones,258.91,155.35,2022-02-28,Supplier_17
+P00069,SoundWave Over-Ear Headphones,Audio & Headphones,220.59,132.35,2022-03-12,Supplier_20
+P00070,SoundWave Over-Ear Headphones,Audio & Headphones,160.49,96.29,2023-02-18,Supplier_4
+P00071,AudioPro Wireless Earbuds,Audio & Headphones,220.58,132.35,2023-09-27,Supplier_3
+P00072,ClearSound Bluetooth Speaker,Audio & Headphones,290.82,174.49,2022-09-25,Supplier_7
+P00073,BassMax Over-Ear Headphones,Audio & Headphones,196.86,118.12,2022-09-29,Supplier_13
+P00074,AudioPro Bluetooth Speaker,Audio & Headphones,292.41,175.45,2023-04-14,Supplier_11
+P00075,SoundWave Wireless Earbuds,Audio & Headphones,42.6,25.56,2023-04-15,Supplier_20
+P00076,SoundWave Wireless Earbuds,Audio & Headphones,248.07,148.84,2023-07-05,Supplier_7
+P00077,BassMax Over-Ear Headphones,Audio & Headphones,204.2,122.52,2022-12-24,Supplier_3
+P00078,AudioPro Bluetooth Speaker,Audio & Headphones,181.15,108.69,2022-10-19,Supplier_6
+P00079,ClearSound Bluetooth Speaker,Audio & Headphones,204.48,122.69,2023-09-19,Supplier_17
+P00080,SoundWave Bluetooth Speaker,Audio & Headphones,80.34,48.2,2023-11-11,Supplier_4
+P00081,AudioPro Bluetooth Speaker,Audio & Headphones,185.89,111.53,2022-04-29,Supplier_4
+P00082,HomeConnect Smart Bulb,Smart Home Devices,198.18,142.69,2022-10-16,Supplier_20
+P00083,HomeConnect Smart Bulb,Smart Home Devices,258.36,186.02,2022-07-28,Supplier_9
+P00084,TechNest Smart Bulb,Smart Home Devices,151.17,108.84,2022-02-22,Supplier_3
+P00085,TechNest Smart Bulb,Smart Home Devices,135.58,97.62,2022-02-15,Supplier_1
+P00086,AutoHome Security Camera,Smart Home Devices,152.06,109.48,2023-10-15,Supplier_9
+P00087,HomeConnect Voice Assistant,Smart Home Devices,228.16,164.28,2023-07-19,Supplier_14
+P00088,SmartLife Smart Thermostat,Smart Home Devices,196.65,141.59,2022-03-19,Supplier_5
+P00089,SmartLife Smart Bulb,Smart Home Devices,150.55,108.4,2023-08-20,Supplier_18
+P00090,HomeConnect Voice Assistant,Smart Home Devices,206.56,148.72,2022-05-11,Supplier_2
+P00091,AutoHome Smart Bulb,Smart Home Devices,184.21,132.63,2022-02-10,Supplier_12
+P00092,HomeConnect Security Camera,Smart Home Devices,231.02,166.33,2023-11-14,Supplier_4
+P00093,AutoHome Smart Lock,Smart Home Devices,141.3,101.74,2023-02-21,Supplier_20
+P00094,HomeConnect Security Camera,Smart Home Devices,161.4,116.21,2022-06-16,Supplier_6
+P00095,TechNest Smart Thermostat,Smart Home Devices,157.94,113.72,2022-07-03,Supplier_11
+P00096,TechNest Security Camera,Smart Home Devices,100.41,72.3,2022-10-01,Supplier_6
+P00097,SmartLife Voice Assistant,Smart Home Devices,194.9,140.33,2022-02-09,Supplier_16
+P00098,HomeConnect Security Camera,Smart Home Devices,193.02,138.97,2023-04-17,Supplier_12
+P00099,AutoHome Security Camera,Smart Home Devices,179.27,129.07,2022-08-17,Supplier_1
+P00100,HomeConnect Voice Assistant,Smart Home Devices,166.4,119.81,2022-12-03,Supplier_9
+P00101,SmartLife Smart Bulb,Smart Home Devices,102.99,74.15,2022-12-26,Supplier_17
+P00102,TechNest Smart Lock,Smart Home Devices,156.41,112.62,2022-12-06,Supplier_1
+P00103,SmartLife Smart Bulb,Smart Home Devices,160.6,115.63,2022-07-02,Supplier_19
+P00104,AutoHome Smart Thermostat,Smart Home Devices,135.92,97.86,2022-04-22,Supplier_20
