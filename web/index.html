@@ -29,35 +29,28 @@ body{background:#0d0d0d;color:#e8e6e3;font-family:system-ui,sans-serif;min-heigh
   <div><span style="font-size:1.1rem;font-weight:700">TechGear+</span><span class="badge">Repository data</span></div>
   <div style="font-size:.75rem;color:#555">Built by <a href="https://hildaposada.github.io" style="color:#00c896;text-decoration:none">Hilda Posada</a> | Synthetic sales dataset</div>
 </div>
-<main style="padding:1.5rem 2rem"><p id="source">Loading repository dataset…</p><label for="year">Year</label> <select id="year" onchange="render()"><option value="all">All years</option></select></main>
+<main style="padding:1.5rem 2rem"><p id="source">Loading repository dataset…</p><h1 style="margin-bottom:.5rem">What drives sales?</h1><p style="margin-bottom:1rem;color:#aaa">Explore categories, channels, and regions. Every chart follows the same filters.</p><label for="category">Category</label> <select id="category" onchange="render()"><option value="all">All categories</option></select> <label for="channel-filter">Channel</label> <select id="channel-filter" onchange="render()"><option value="all">All channels</option></select> <label for="region">Region</label> <select id="region" onchange="render()"><option value="all">All regions</option></select> <label for="year">Year</label> <select id="year" onchange="render()"><option value="all">All years</option></select></main>
 <div class="kpi-row">
 <div class="kpi"><div class="kpi-label">Recorded sales amount</div><div class="kpi-val" id="total">—</div></div>
-<div class="kpi"><div class="kpi-label">Transactions (all years)</div><div class="kpi-val" id="count">—</div></div>
-<div class="kpi"><div class="kpi-label">Average transaction (all years)</div><div class="kpi-val" id="average">—</div></div>
+<div class="kpi"><div class="kpi-label">Transactions (selected filters)</div><div class="kpi-val" id="count">—</div></div>
+<div class="kpi"><div class="kpi-label">Average transaction (selected filters)</div><div class="kpi-val" id="average">—</div></div>
 <div class="kpi"><div class="kpi-label">Date coverage</div><div class="kpi-val" style="font-size:1rem" id="coverage">—</div></div>
-</div><div class="charts"><div class="card"><h3>Monthly recorded sales amount</h3><canvas id="revenue"></canvas></div><div class="card"><h3>Category sales (all years)</h3><canvas id="catPie"></canvas></div></div><div class="card" style="margin:0 2rem"><h3>Channel sales (all years)</h3><canvas id="channel"></canvas></div>
-<div class="footer"><a href="https://github.com/HildaPosada/techgear-plus-sales-dashboard" target="_blank">Source data and SQL →</a></div>
+</div><div class="charts"><div class="card"><h3>Monthly recorded sales amount</h3><canvas id="revenue"></canvas></div><div class="card"><h3>Category sales (selected filters)</h3><canvas id="catPie"></canvas></div></div><div class="card" style="margin:0 2rem"><h3>Channel sales (selected filters)</h3><canvas id="channel"></canvas></div>
+<section class="card" style="margin:1.5rem 2rem"><h3>What stands out</h3><p id="insight"></p><button onclick="downloadSummary()" style="margin-top:1rem;padding:.6rem 1rem">Download filtered monthly totals</button></section><div class="footer"><a href="https://github.com/HildaPosada/techgear-plus-sales-dashboard" target="_blank">Source data and SQL →</a></div>
 <script>
-let data, lineChart;
-const money = value => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(value);
-function render() {
+let data, filtered=[], charts={};
+const money=v=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(v);
+function sum(rows){return rows.reduce((n,r)=>n+r.amount_cents,0)/100}
+function group(rows,key){const out={};for(const r of rows)out[r[key]]=(out[r[key]]||0)+r.amount_cents/100;return out}
+function draw(id,type,values){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),{type,data:{labels:Object.keys(values),datasets:[{label:'Recorded sales amount (USD)',data:Object.values(values),borderColor:'#00c896',backgroundColor:'#00c89655',fill:type==='line'}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}})}
+function render(){
  const year=document.getElementById('year').value;
- const entries=Object.entries(data.monthly).filter(([month])=>year==='all'||month.startsWith(year));
- document.getElementById('total').textContent=money(entries.reduce((sum,[,value])=>sum+value,0));
- if(lineChart)lineChart.destroy();
- lineChart=new Chart(document.getElementById('revenue'),{type:'line',data:{labels:entries.map(([month])=>month),datasets:[{label:'Recorded sales amount',data:entries.map(([,value])=>value),borderColor:'#00c896'}]},options:{plugins:{legend:{display:false}}}});
+ filtered=data.cells.filter(r=>(year==='all'||r.month.startsWith(year))&&['category','region'].every(k=>document.getElementById(k).value==='all'||r[k]===document.getElementById(k).value)&&(document.getElementById('channel-filter').value==='all'||r.channel===document.getElementById('channel-filter').value));
+ const total=sum(filtered),count=filtered.reduce((n,r)=>n+r.count,0),months=[...new Set(filtered.map(r=>r.month))].sort();
+ document.getElementById('total').textContent=money(total);document.getElementById('count').textContent=count.toLocaleString();document.getElementById('average').textContent=count?money(total/count):'—';document.getElementById('coverage').textContent=months.length?months[0]+' to '+months.at(-1):'No matching records';
+ const monthly=group(filtered,'month');draw('revenue','line',Object.fromEntries(Object.keys(monthly).sort().map(k=>[k,monthly[k]])));draw('catPie','bar',group(filtered,'category'));draw('channel','bar',group(filtered,'channel'));
+ const top=Object.entries(group(filtered,'category')).sort((a,b)=>b[1]-a[1])[0];document.getElementById('insight').textContent=top?`${top[0]} contributes ${(100*top[1]/total).toFixed(1)}% of sales in this selection (${money(top[1])}). Compare channels and regions before choosing an action. This synthetic dataset demonstrates analysis, not actual business performance.`:'No records match this selection.';
 }
-async function load() {
- try {
-  const response=await fetch('summary.json'); if(!response.ok)throw new Error('Dataset could not be loaded.');data=await response.json();
-  Chart.defaults.color='#888';Chart.defaults.borderColor='#242424';
-  document.getElementById('source').textContent=data.source;
-  document.getElementById('count').textContent=data.transactions.toLocaleString();
-  document.getElementById('average').textContent=money(data.revenue/data.transactions);
-  document.getElementById('coverage').textContent=data.date_start.slice(0,10)+' to '+data.date_end.slice(0,10);
-  for(const year of [...new Set(Object.keys(data.monthly).map(m=>m.slice(0,4)))]) {const option=document.createElement('option');option.value=year;option.textContent=year;document.getElementById('year').append(option);}
-  for(const [id,values] of [['catPie',data.categories],['channel',data.channels]])new Chart(document.getElementById(id),{type:'bar',data:{labels:Object.keys(values),datasets:[{label:'Recorded sales amount (USD)',data:Object.values(values),backgroundColor:'#00c896'}]}});
-  render();
- }catch(error){document.getElementById('source').textContent=error.message;}
-}load();
+function downloadSummary(){const monthly=group(filtered,'month');const csv='month,recorded_amount_usd\n'+Object.entries(monthly).sort().map(([m,v])=>m+','+v.toFixed(2)).join('\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));const a=document.createElement('a');a.href=url;a.download='techgear-filtered-monthly.csv';a.click();URL.revokeObjectURL(url)}
+async function load(){try{const res=await fetch('explorer.json');if(!res.ok)throw Error('Dataset unavailable');data=await res.json();Chart.defaults.color='#bbb';Chart.defaults.borderColor='#333';document.getElementById('source').textContent=data.source;for(const [id,key] of [['category','category'],['channel-filter','channel'],['region','region'],['year','month']]){const values=[...new Set(data.cells.map(r=>key==='month'?r.month.slice(0,4):r[key]))].sort();for(const v of values){const o=document.createElement('option');o.value=v;o.textContent=v;document.getElementById(id).append(o)}}render()}catch(e){document.getElementById('source').textContent=e.message}}load();
 </script></body></html>
