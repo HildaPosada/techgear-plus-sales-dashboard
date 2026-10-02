@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TechGear+ Sales Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d0d;color:#e8e6e3;font-family:system-ui,sans-serif;min-height:100vh}
+.topbar{background:#141414;border-bottom:1px solid #242424;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.topbar h1{font-size:1.1rem;font-weight:700}
+.badge{background:#00c89620;color:#00c896;border:1px solid #00c896;padding:.2rem .7rem;border-radius:999px;font-size:.7rem;font-weight:700;margin-left:.75rem}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:1.5rem 2rem}
+.kpi{background:#141414;border:1px solid #242424;border-radius:.75rem;padding:1.25rem 1.5rem}
+.kpi-label{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem}
+.kpi-val{font-size:1.75rem;font-weight:800;color:#00c896}
+.kpi-sub{font-size:.7rem;color:#555;margin-top:.2rem}
+.charts{display:grid;grid-template-columns:2fr 1fr;gap:1rem;padding:0 2rem 1.5rem}
+.charts2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;padding:0 2rem 2rem}
+.card{background:#141414;border:1px solid #242424;border-radius:.75rem;padding:1.25rem}
+.card h3{font-size:.75rem;color:#888;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
+.footer{text-align:center;padding:1rem;font-size:.75rem;color:#444}
+.footer a{color:#00c896;text-decoration:none}
+@media(max-width:768px){.kpi-row{grid-template-columns:1fr 1fr}.charts{grid-template-columns:1fr}.charts2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div><span style="font-size:1.1rem;font-weight:700">TechGear+</span><span class="badge">Repository data</span></div>
+  <div style="font-size:.75rem;color:#555">Built by <a href="https://hildaposada.github.io" style="color:#00c896;text-decoration:none">Hilda Posada</a> | Synthetic sales dataset</div>
+</div>
+<main style="padding:1.5rem 2rem"><p id="source">Loading repository dataset…</p><label for="year">Year</label> <select id="year" onchange="render()"><option value="all">All years</option></select></main>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-label">Recorded sales amount</div><div class="kpi-val" id="total">—</div></div>
+<div class="kpi"><div class="kpi-label">Transactions (all years)</div><div class="kpi-val" id="count">—</div></div>
+<div class="kpi"><div class="kpi-label">Average transaction (all years)</div><div class="kpi-val" id="average">—</div></div>
+<div class="kpi"><div class="kpi-label">Date coverage</div><div class="kpi-val" style="font-size:1rem" id="coverage">—</div></div>
+</div><div class="charts"><div class="card"><h3>Monthly recorded sales amount</h3><canvas id="revenue"></canvas></div><div class="card"><h3>Category sales (all years)</h3><canvas id="catPie"></canvas></div></div><div class="card" style="margin:0 2rem"><h3>Channel sales (all years)</h3><canvas id="channel"></canvas></div>
+<div class="footer"><a href="https://github.com/HildaPosada/techgear-plus-sales-dashboard" target="_blank">Source data and SQL →</a></div>
+<script>
+let data, lineChart;
+const money = value => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(value);
+function render() {
+ const year=document.getElementById('year').value;
+ const entries=Object.entries(data.monthly).filter(([month])=>year==='all'||month.startsWith(year));
+ document.getElementById('total').textContent=money(entries.reduce((sum,[,value])=>sum+value,0));
+ if(lineChart)lineChart.destroy();
+ lineChart=new Chart(document.getElementById('revenue'),{type:'line',data:{labels:entries.map(([month])=>month),datasets:[{label:'Recorded sales amount',data:entries.map(([,value])=>value),borderColor:'#00c896'}]},options:{plugins:{legend:{display:false}}}});
+}
+async function load() {
+ try {
+  const response=await fetch('summary.json'); if(!response.ok)throw new Error('Dataset could not be loaded.');data=await response.json();
+  Chart.defaults.color='#888';Chart.defaults.borderColor='#242424';
+  document.getElementById('source').textContent=data.source;
+  document.getElementById('count').textContent=data.transactions.toLocaleString();
+  document.getElementById('average').textContent=money(data.revenue/data.transactions);
+  document.getElementById('coverage').textContent=data.date_start.slice(0,10)+' to '+data.date_end.slice(0,10);
+  for(const year of [...new Set(Object.keys(data.monthly).map(m=>m.slice(0,4)))]) {const option=document.createElement('option');option.value=year;option.textContent=year;document.getElementById('year').append(option);}
+  for(const [id,values] of [['catPie',data.categories],['channel',data.channels]])new Chart(document.getElementById(id),{type:'bar',data:{labels:Object.keys(values),datasets:[{label:'Recorded sales amount (USD)',data:Object.values(values),backgroundColor:'#00c896'}]}});
+  render();
+ }catch(error){document.getElementById('source').textContent=error.message;}
+}load();
+</script></body></html>
