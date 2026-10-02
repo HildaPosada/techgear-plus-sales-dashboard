@@ -1,5 +1,12 @@
 # TechGear+ Sales Dashboard
 
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![SQL](https://img.shields.io/badge/SQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/docs/current/tutorial-sql.html)
+[![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
+[![Vercel](https://img.shields.io/badge/Vercel-171717?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+
+
 ## Verified deployment status · October 1, 2026
 
 The [web dashboard](https://dashboard-demo-gray.vercel.app/) now summarizes the repository's 50,000 synthetic transactions, rather than preset chart numbers. Recorded total_amount sums to $35,890,284.39 across January 1, 2022 to September 28, 2025; 2025 is partial. Monthly/category/channel totals reconcile. There are 677 legacy rows with more than one cent of rounding difference, maximum $0.03. Those recorded totals are retained and reported as a source limitation; the generator is corrected for future runs.
