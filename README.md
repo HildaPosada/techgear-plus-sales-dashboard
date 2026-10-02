@@ -1,4 +1,4 @@
-# TechGear+ Sales Dashboard
+# [TechGear+ Sales Dashboard](https://dashboard-demo-gray.vercel.app/)
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
@@ -6,48 +6,24 @@
 [![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
 [![Vercel](https://img.shields.io/badge/Vercel-171717?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-> **[Live dashboard](https://dashboard-demo-gray.vercel.app/)**
+Explore 50,000 synthetic sales transactions with coordinated filters and downloadable monthly summaries.
 
-![Demo Screenshot](docs/assets/demo-screenshot.png)
+## Explore
 
----
+Year, category, channel, and region filters update every KPI and chart. The dashboard identifies the largest category contributor within the selected records.
 
-## The Problem
+## Data
 
-Raw e-commerce transaction data does not tell a story. Stakeholders need instant answers: which category drives margin, which channel is growing, which quarter peaked. This dashboard delivers that in one view.
+- Recorded sales amount: **$35,890,284.39**.
+- Date coverage: January 1, 2022 through September 28, 2025.
+- 2025 is partial. Full-year growth comparisons would be misleading.
+- Recorded totals include shipping and subtract discounts.
 
-## What I Built
+The explorer aggregates source amounts in integer cents and reconciles all 50,000 transactions. Synthetic data demonstrates the analysis workflow, not actual business performance.
 
-- Processed 50,000 sales transactions across 5 product categories
-- KPI layer: total revenue, transaction volume, top category, best margin
-- Monthly revenue trend (2022–2025) with YoY growth calculation
-- Revenue by category, sales by channel, quarterly growth, margin by category
-- Built with Python data pipeline + Chart.js for visualization
+## Files
 
-## Key Results
-
-| Metric | Value |
-|--------|-------|
-| Total Revenue Analyzed | $12.4M |
-| Transactions Processed | 50,000 |
-| YoY Growth Identified | +18.3% |
-| Top Margin Category | Mobile, 45% |
-| Top Revenue Category | Laptops, 35% share |
-
-## Skills Demonstrated
-
-`Python` `SQL` `Data Visualization` `BI Dashboards` `Chart.js` `E-commerce Analytics`
-
-## How to Run
-
-```bash
-pip install -r requirements.txt
-python generate_data.py
-python app.py
-```
-
-## About
-
-Built by Hilda Posada | MS Organic Chemistry, CSULB | Omdena ML Lead
-[LinkedIn](https://linkedin.com/in/hildaposada) | [GitHub](https://github.com/HildaPosada) | [Portfolio](https://hildaposada.github.io)
-
+- `data/raw/`: source transactions, products, and customers.
+- `scripts/`: data generation and validation.
+- `sql/`: analytical queries.
+- `web/`: deployed dashboard and aggregation data.
