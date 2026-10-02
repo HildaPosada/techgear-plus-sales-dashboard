@@ -4,7 +4,7 @@
 
 The [web dashboard](https://dashboard-demo-gray.vercel.app/) now summarizes the repository's 50,000 synthetic transactions, rather than preset chart numbers. Recorded total_amount sums to $35,890,284.39 across January 1, 2022 to September 28, 2025; 2025 is partial. Monthly/category/channel totals reconcile. There are 677 legacy rows with more than one cent of rounding difference, maximum $0.03. Those recorded totals are retained and reported as a source limitation; the generator is corrected for future runs.
 
-See [deployment source and scope](web/README.md) and the [portfolio audit](https://github.com/HildaPosada/hildaposada.github.io/blob/main/docs/project_audit.md). Historical descriptions below are not evidence of a connected production backend.
+See [deployment source and scope](web/README.md) and the [portfolio audit](https://github.com/HildaPosada/hildaposada.github.io/blob/master/docs/project_audit.md). Historical descriptions below are not evidence of a connected production backend.
 
 
 > **[Live Demo](https://dashboard-demo-gray.vercel.app)** | Executive BI dashboard: $12.4M revenue across 50,000 transactions, 2022–2025.
