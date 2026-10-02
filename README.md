@@ -6,16 +6,7 @@
 [![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
 [![Vercel](https://img.shields.io/badge/Vercel-171717?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-
 > **[Live dashboard](https://dashboard-demo-gray.vercel.app/)**
-
-## Verified deployment status · October 1, 2026
-
-The web dashboard now summarizes the repository's 50,000 synthetic transactions, rather than preset chart numbers. Recorded total_amount sums to $35,890,284.39 across January 1, 2022 to September 28, 2025; 2025 is partial. Monthly/category/channel totals reconcile. There are 677 legacy rows with more than one cent of rounding difference, maximum $0.03. Those recorded totals are retained and reported as a source limitation; the generator is corrected for future runs.
-
-See [deployment source and scope](web/README.md) and the [portfolio audit](https://github.com/HildaPosada/hildaposada.github.io/blob/master/docs/project_audit.md). Historical descriptions below are not evidence of a connected production backend.
-
-
 
 ![Demo Screenshot](docs/assets/demo-screenshot.png)
 
