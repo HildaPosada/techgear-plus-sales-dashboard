@@ -17,7 +17,7 @@ See [deployment source and scope](web/README.md) and the [portfolio audit](https
 
 
 
-![Demo Screenshot](demo-screenshot.png)
+![Demo Screenshot](docs/assets/demo-screenshot.png)
 
 ---
 
