@@ -232,13 +232,15 @@ def generate_sales_transactions(products_df, customers_df):
             if segment_multiplier > 1.0:
                 unit_price *= np.random.uniform(1.0, min(1.2, segment_multiplier))
             
+            # Round the adjusted price before computing amounts; exported cents must reconcile.
+            unit_price = round(unit_price, 2)
             # Calculate amounts
             subtotal = unit_price * quantity
             
             # Discount (10% of orders have discounts)
             discount_amount = 0.0
             if random.random() < 0.1:
-                discount_amount = subtotal * random.uniform(0.05, 0.20)
+                discount_amount = round(subtotal * random.uniform(0.05, 0.20), 2)
             
             # Shipping cost
             if subtotal > 75:
@@ -246,7 +248,7 @@ def generate_sales_transactions(products_df, customers_df):
             else:
                 shipping_cost = random.choice([5.99, 7.99, 9.99])
             
-            total_amount = subtotal - discount_amount + shipping_cost
+            total_amount = round(subtotal - discount_amount + shipping_cost, 2)
             
             # Sales channel
             channel = np.random.choice(
